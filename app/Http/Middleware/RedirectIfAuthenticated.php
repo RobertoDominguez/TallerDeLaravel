@@ -23,13 +23,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::guard('admin')){
+                if ($guard == 'admin') {
                     return redirect()->route('index');
                 }
-                if (Auth::guard('usuario')){
+                if ($guard == 'usuario') {
                     return redirect()->route('index');
                 }
-                return redirect()->route('index');
             }
         }
 

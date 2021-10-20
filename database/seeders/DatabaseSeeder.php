@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             AdministradorSeeder::class,
-            
+            FacultadSeeder::class,
+            CarreraSeeder::class,
+            MateriaSeeder::class,
+            UsuarioSeeder::class,
         ]);
     }
 }

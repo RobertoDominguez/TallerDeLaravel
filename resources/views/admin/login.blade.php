@@ -12,14 +12,14 @@
     <title>Iniciar Sesion como administrador</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('/adminTemplate/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+    <link href="{{ asset('/AdminTemplate/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
         type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('/adminTemplate/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/AdminTemplate/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -90,14 +90,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('/adminTemplate/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('/adminTemplate/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('/adminTemplate/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('/adminTemplate/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/js/sb-admin-2.min.js') }}"></script>
 
 </body>
 

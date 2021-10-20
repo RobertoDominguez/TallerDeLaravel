@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',function(){
-    return "este es el index";
+    return view('welcome');
 })->name('index');
 
 
@@ -27,9 +28,14 @@ Route::prefix('admin')->group(function () {
     Route::post('/login',[AdministradorController::class,'login'])->name('admin.login')->middleware('guest:admin');
 
     Route::middleware(['auth:admin'])->group(function () {
-        Route::get('/menu',function(){
-            return "inicio sesion";
-        })->name('admin.menu');
+        Route::get('/menu',[AdministradorController::class,'menu'])->name('admin.menu');
+
+        Route::get('/usuarios',[UsuarioController::class,'index'])->name('admin.usuarios');
+        Route::get('/usuario/create',[UsuarioController::class,'create'])->name('admin.usuario.create');
+        Route::post('/usuario/store',[UsuarioController::class,'store'])->name('admin.usuario.store');
+        Route::get('/usuario/edit/{usuario}',[UsuarioController::class,'edit'])->name('admin.usuario.edit');
+        Route::post('/usuario/update/{usuario}',[UsuarioController::class,'update'])->name('admin.usuario.update');
+        Route::post('/usuario/delete/{usuario}',[UsuarioController::class,'destroy'])->name('admin.usuario.delete');
     });
     
 });

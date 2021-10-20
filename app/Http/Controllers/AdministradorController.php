@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Hash;
 class AdministradorController extends Controller
 {
 
-    public function __construct()
-    {
-        
-    }
 
     public function loginView(){
         return view('admin.login');
@@ -35,5 +31,9 @@ class AdministradorController extends Controller
             return redirect()->route('admin.menu');
         }
         return back()->withErrors(['error'=>'La contraseña es incorrecta']);
+    }
+
+    public function menu(){
+        return view('admin.menu');
     }
 }

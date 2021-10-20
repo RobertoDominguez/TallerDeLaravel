@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tema extends Model
 {
     use HasFactory;
+
+    protected $table='tema';
+
+    protected $fillable=[
+        'nombre',
+        'descripcion',
+        'id_materia'
+    ];
 }
