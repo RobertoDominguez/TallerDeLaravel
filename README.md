@@ -76,7 +76,7 @@ php artisan make:model nombre -a
  php artisan storage:link
 
 
-# Taller de laravel en Youtube
+# Taller de laravel en YouTube
 <p align="center">
     <a href="https://www.youtube.com/watch?v=0E3xJT1Qxic&list=PLn6521e1PoECePLb8qsBknIQ3eViWawwx&ab_channel=RobertoSenpai">
         <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" width="400">    
