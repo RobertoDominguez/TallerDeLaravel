@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facultad;
 use App\Models\Carrera;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CarreraController extends Controller
 {
@@ -14,7 +16,8 @@ class CarreraController extends Controller
      */
     public function index()
     {
-        //
+        $carreras = Carrera::all();
+        return view('admin.carrera.index', compact('carreras'));
     }
 
     /**
@@ -24,7 +27,8 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        //
+        $facultades = Facultad::all();
+        return view('admin.carrera.create', compact('facultades'));
     }
 
     /**
@@ -35,7 +39,15 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'id_facultad' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'codigo' => ['required', 'max:30', 'unique:carrera,codigo'],
+        ]);
+
+        $carrera = Carrera::create($validatedData);
+
+        return redirect()->route('admin.carreras');
     }
 
     /**
@@ -57,7 +69,8 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        //
+        $facultades = Facultad::all();
+        return view('admin.carrera.edit', compact('carrera', 'facultades'));
     }
 
     /**
@@ -69,7 +82,16 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        //
+
+        $validatedData = $request->validate([
+            'id_facultad' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'codigo' => ['required', 'max:30', 'unique:carrera,codigo'],
+        ]);
+
+        $carrera->update($validatedData);
+
+        return redirect()->route('admin.carreras');
     }
 
     /**
@@ -80,6 +102,7 @@ class CarreraController extends Controller
      */
     public function destroy(Carrera $carrera)
     {
-        //
+        $carrera->delete();
+        return redirect()->route('admin.carreras');
     }
 }

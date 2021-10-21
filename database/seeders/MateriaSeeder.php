@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Materia;
 use Illuminate\Database\Seeder;
 
 class MateriaSeeder extends Seeder
@@ -13,6 +14,10 @@ class MateriaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Materia::create([
+            'id_carrera'=>1,
+            'nombre'=>'Introduccion a la informatica',
+            'sigla'=>'INF110'
+        ]);
     }
 }

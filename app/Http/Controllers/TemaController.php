@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Materia;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TemaController extends Controller
 {
@@ -14,7 +16,8 @@ class TemaController extends Controller
      */
     public function index()
     {
-        //
+        $temas = Tema::all();
+        return view('usuario.tema.index', compact('temas'));
     }
 
     /**
@@ -24,7 +27,8 @@ class TemaController extends Controller
      */
     public function create()
     {
-        //
+        $materias = Materia::all();
+        return view('usuario.tema.create', compact('materias'));
     }
 
     /**
@@ -35,7 +39,15 @@ class TemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'id_materia' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'descripcion' => ['required', 'max:250'],
+        ]);
+
+        $tema = Tema::create($validatedData);
+
+        return redirect()->route('usuario.temas');
     }
 
     /**
@@ -57,7 +69,8 @@ class TemaController extends Controller
      */
     public function edit(Tema $tema)
     {
-        //
+        $materias = Materia::all();
+        return view('usuario.tema.edit', compact('tema', 'materias'));
     }
 
     /**
@@ -69,7 +82,16 @@ class TemaController extends Controller
      */
     public function update(Request $request, Tema $tema)
     {
-        //
+
+        $validatedData = $request->validate([
+            'id_materia' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'descripcion' => ['required', 'max:250'],
+        ]);
+
+        $tema->update($validatedData);
+
+        return redirect()->route('usuario.temas');
     }
 
     /**
@@ -80,6 +102,7 @@ class TemaController extends Controller
      */
     public function destroy(Tema $tema)
     {
-        //
+        $tema->delete();
+        return redirect()->route('usuario.temas');
     }
 }

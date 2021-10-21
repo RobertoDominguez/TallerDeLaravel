@@ -13,8 +13,9 @@ class Apunte extends Model
 
     protected $fillable = [
         'id_tema',
-        'texto',
+        'id_usuario',
         'titulo',
+        'texto',
         'url_imagen',
         'url_recurso',
         'url_archivo',

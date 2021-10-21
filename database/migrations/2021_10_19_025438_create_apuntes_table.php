@@ -16,12 +16,14 @@ class CreateApuntesTable extends Migration
         Schema::create('apunte', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_tema');
-            $table->text('texto');
+            $table->unsignedBigInteger('id_usuario');
             $table->string('titulo');
-            $table->string('url_imagen');
-            $table->string('url_recurso');
-            $table->string('url_archivo');
+            $table->text('texto')->nullable();
+            $table->string('url_imagen')->nullable();
+            $table->string('url_recurso')->nullable();
+            $table->string('url_archivo')->nullable();
             $table->foreign('id_tema')->references('id')->on('tema')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

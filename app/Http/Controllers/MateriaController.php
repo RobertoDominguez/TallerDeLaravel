@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrera;
 use App\Models\Materia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MateriaController extends Controller
 {
@@ -14,7 +16,8 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        //
+        $materias = Materia::all();
+        return view('admin.materia.index', compact('materias'));
     }
 
     /**
@@ -24,7 +27,8 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        //
+        $carreras = Carrera::all();
+        return view('admin.materia.create', compact('carreras'));
     }
 
     /**
@@ -35,7 +39,15 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'id_carrera' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'sigla' => ['required', 'max:30'],
+        ]);
+
+        $materia = Materia::create($validatedData);
+
+        return redirect()->route('admin.materias');
     }
 
     /**
@@ -57,7 +69,8 @@ class MateriaController extends Controller
      */
     public function edit(Materia $materia)
     {
-        //
+        $carreras = Carrera::all();
+        return view('admin.materia.edit', compact('materia', 'carreras'));
     }
 
     /**
@@ -69,7 +82,16 @@ class MateriaController extends Controller
      */
     public function update(Request $request, Materia $materia)
     {
-        //
+
+        $validatedData = $request->validate([
+            'id_carrera' => ['required'],
+            'nombre' => ['required', 'max:120'],
+            'sigla' => ['required', 'max:30'],
+        ]);
+
+        $materia->update($validatedData);
+
+        return redirect()->route('admin.materias');
     }
 
     /**
@@ -80,6 +102,7 @@ class MateriaController extends Controller
      */
     public function destroy(Materia $materia)
     {
-        //
+        $materia->delete();
+        return redirect()->route('admin.materias');
     }
 }

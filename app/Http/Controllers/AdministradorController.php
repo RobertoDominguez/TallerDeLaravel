@@ -36,4 +36,9 @@ class AdministradorController extends Controller
     public function menu(){
         return view('admin.menu');
     }
+
+    public function logout(){
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.login.view');
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrera;
 use App\Models\Facultad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class FacultadController extends Controller
 {
@@ -14,7 +16,8 @@ class FacultadController extends Controller
      */
     public function index()
     {
-        //
+        $facultades=Facultad::all();
+        return view('admin.facultad.index',compact('facultades'));
     }
 
     /**
@@ -24,7 +27,7 @@ class FacultadController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.facultad.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class FacultadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'sigla' => ['required','max:12','unique:facultad,sigla'],
+            'nombre' => ['required','max:120'],
+        ]);
+        
+        $facultad=Facultad::create($validatedData);
+
+        return redirect()->route('admin.facultades');
+
     }
 
     /**
@@ -57,7 +68,7 @@ class FacultadController extends Controller
      */
     public function edit(Facultad $facultad)
     {
-        //
+        return view('admin.facultad.edit',compact('facultad'));
     }
 
     /**
@@ -69,7 +80,14 @@ class FacultadController extends Controller
      */
     public function update(Request $request, Facultad $facultad)
     {
-        //
+        $validatedData = $request->validate([
+            'sigla' => ['required','max:12','unique:facultad,sigla'],
+            'nombre' => ['required','max:120'],
+        ]);
+        
+        $facultad->update($validatedData);
+
+        return redirect()->route('admin.facultades');
     }
 
     /**
@@ -80,6 +98,7 @@ class FacultadController extends Controller
      */
     public function destroy(Facultad $facultad)
     {
-        //
+        $facultad->delete();
+        return redirect()->route('admin.facultades');
     }
 }

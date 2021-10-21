@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CarreraSeeder::class,
             MateriaSeeder::class,
             UsuarioSeeder::class,
+            TemaSeeder::class,
         ]);
     }
 }

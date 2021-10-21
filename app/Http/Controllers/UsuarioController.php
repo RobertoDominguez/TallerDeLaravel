@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carrera;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
@@ -120,4 +121,39 @@ class UsuarioController extends Controller
         $usuario->delete();
         return redirect()->route('admin.usuarios');
     }
+
+
+
+
+    public function loginView(){
+        return view('usuario.login');
+    }
+
+    public function login(Request $request){
+        $validatedData = $request->validate([
+            'email' => ['required', 'max:30','exists:usuario,email'],
+            'password' => ['required'],
+        ]);
+
+        $usuario=Usuario::where('email',$request->email)->first();
+
+        // if (is_null($usuario)){
+        //     return back()->withErrors(['error'=>'El usuario no existe']);    
+        // }
+
+        if (Auth::guard('usuario')->attempt(['email' => $request->email, 'password' => $request->password])){
+            return redirect()->route('usuario.menu');
+        }
+        return back()->withErrors(['error'=>'La contraseña es incorrecta']);
+    }
+
+    public function menu(){
+        return view('usuario.menu');
+    }
+
+    public function logout(){
+        Auth::guard('usuario')->logout();
+        return redirect()->route('usuario.login.view');
+    }
+
 }

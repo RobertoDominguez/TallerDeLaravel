@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Menu principal Administrador</title>
+    <title>@yield('header')</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('/AdminTemplate/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('admin.menu')}}">
+                <a class="nav-link" href="{{ route('admin.menu') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Menu</span></a>
             </li>
@@ -59,7 +59,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.usuarios')}}">
+                <a class="nav-link" href="{{ route('admin.usuarios') }}">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Gestionar Usuarios</span></a>
             </li>
@@ -67,21 +67,21 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.facultades') }}">
                     {{-- <i class="fas fa-fw fa-cog"></i> --}}
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Gestionar Facultades</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.carreras') }}">
                     {{-- <i class="fas fa-fw fa-cog"></i> --}}
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Gestionar Carreras</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.materias') }}">
                     {{-- <i class="fas fa-fw fa-cog"></i> --}}
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Gestionar Materias</span></a>
@@ -279,21 +279,18 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+
+                                <form action="{{route('admin.logout')}}" method="POST">
+                                    {{ csrf_field() }}
+                                    <button class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Cerrar Sesion
+                                    </button>
+                                </form>
+                                
                             </div>
                         </li>
 
@@ -318,12 +315,10 @@
                     <div class="row">
 
                         @yield('content')
-                        
+
 
                     </div>
 
-                    
-                    
                 </div>
                 <!-- /.container-fluid -->
 
@@ -372,7 +367,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('/AdminTemplate/endor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/AdminTemplate/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -389,11 +384,11 @@
     <script src="{{ asset('/AdminTemplate/js/demo/chart-pie-demo.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{ asset('/AdminTemplate/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset('/AdminTemplate/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/AdminTemplate/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('/AdminTemplate/js/demo/datatables-demo.js')}}"></script>
+    <script src="{{ asset('/AdminTemplate/js/demo/datatables-demo.js') }}"></script>
 
 </body>
 
