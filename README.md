@@ -33,13 +33,11 @@ https://getcomposer.org/download/
 ### Desinstalar el paquete (Si ya lo tienes)
     composer global remove laravel/installer
 
-## Reinstalar/instalar
-   composer global require laravel/installer
+### Reinstalar/instalar
+    composer global require laravel/installer
 
 ## 3) Instalar XAMPP
-<a href="https://www.apachefriends.org/es/index.html">
 https://www.apachefriends.org/es/index.html
-</a>
 
 ## 4) Instalar Visual Studio Code
 https://code.visualstudio.com/
