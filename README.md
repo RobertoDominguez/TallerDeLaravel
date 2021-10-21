@@ -62,7 +62,8 @@ php artisan migrate:fresh --seed
 <p>php artisan make:controller nombre</p>
 <p>php artisan make:migration nombre</p>
 <p>php artisan make:seeder nombre</p>
-#### Crear migracion,seeder,modelo,controlador con un solo comando
+
+### Crear migracion,seeder,modelo,controlador con un solo comando
 php artisan make:model nombre -a
 
 ## Para iniciar un proyecto bajado de github
