@@ -31,10 +31,10 @@ Se necesita saber cuántos apuntes ha añadido cada usuario.
 https://getcomposer.org/download/
 ## 2) Actualizar/Instalar laravel (Consola)
 ### Desinstalar el paquete (Si ya lo tienes)
-composer global remove laravel/installer
+    composer global remove laravel/installer
 
 ## Reinstalar/instalar
-composer global require laravel/installer
+   composer global require laravel/installer
 
 ## 3) Instalar XAMPP
 <a href="https://www.apachefriends.org/es/index.html">
@@ -49,31 +49,31 @@ https://code.visualstudio.com/
 
 ## Comandos de laravel 8
 ### Iniciar un servidor local con laravel (php) 
-php artisan serve
+    php artisan serve
 ### Servidor local avanzado
-php artisan serve --port=8001 --host =ip
+    php artisan serve --port=8001 --host =ip
 
 ### Migracion o creacion de la base de datos
-php artisan migrate 
-php artisan migrate:fresh --seed
+    php artisan migrate 
+    php artisan migrate:fresh --seed
 
 ### Crear modelos, controladores, migraciones,seeds
-<p>php artisan make:model nombre</p>
-<p>php artisan make:controller nombre</p>
-<p>php artisan make:migration nombre</p>
-<p>php artisan make:seeder nombre</p>
+    <p>php artisan make:model nombre</p>
+    <p>php artisan make:controller nombre</p>
+    <p>php artisan make:migration nombre</p>
+    <p>php artisan make:seeder nombre</p>
 
 ### Crear migracion,seeder,modelo,controlador con un solo comando
-php artisan make:model nombre -a
+    php artisan make:model nombre -a
 
 ## Para iniciar un proyecto bajado de github
  #### 1) Copiar .env.example y pegarlo como .env
  #### 2) Configurar las credenciales de la db
  #### 3) Ejecutar los comandos
-      <p>composer install</p>
-      <p>php artisan key:generate<p/>
+      composer install
+      php artisan key:generate
  #### 4) Enlazar la carpeta storage con la carpeta public
- php artisan storage:link
+      php artisan storage:link
 
 
 # Taller de laravel en YouTube
