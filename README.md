@@ -42,12 +42,10 @@ https://www.apachefriends.org/es/index.html
 </a>
 
 ## 4) Instalar Visual Studio Code
-<a href="https://code.visualstudio.com/">
 https://code.visualstudio.com/
-</a>
 
 
-## Comandos de laravel 8
+# Comandos de laravel 8
 ### Iniciar un servidor local con laravel (php) 
     php artisan serve
 ### Servidor local avanzado
@@ -58,10 +56,10 @@ https://code.visualstudio.com/
     php artisan migrate:fresh --seed
 
 ### Crear modelos, controladores, migraciones,seeds
-    <p>php artisan make:model nombre</p>
-    <p>php artisan make:controller nombre</p>
-    <p>php artisan make:migration nombre</p>
-    <p>php artisan make:seeder nombre</p>
+    php artisan make:model nombre
+    php artisan make:controller nombre
+    php artisan make:migration nombre
+    php artisan make:seeder nombre
 
 ### Crear migracion,seeder,modelo,controlador con un solo comando
     php artisan make:model nombre -a
