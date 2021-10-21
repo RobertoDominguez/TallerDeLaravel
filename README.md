@@ -70,8 +70,8 @@ php artisan make:model nombre -a
  #### 1) Copiar .env.example y pegarlo como .env
  #### 2) Configurar las credenciales de la db
  #### 3) Ejecutar los comandos
- composer install
- php artisan key:generate
+ <p>composer install</p>
+ <p>php artisan key:generate<p/>
  #### 4) Enlazar la carpeta storage con la carpeta public
  php artisan storage:link
 
