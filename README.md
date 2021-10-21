@@ -30,7 +30,7 @@ Se necesita saber cuántos apuntes ha añadido cada usuario.
 ## 1) Instalar Composer
 https://getcomposer.org/download/
 ## 2) Actualizar/Instalar laravel
-### desinstalar el paquete (si ya lo tienes)
+### Desinstalar el paquete (si ya lo tienes)
 composer global remove laravel/installer
 
 ## Reinstalar/instalar
@@ -53,24 +53,25 @@ php artisan serve
 ### Servidor local avanzado
 php artisan serve --port=8001 --host =ip
 
-### migracion o creacion de la base de datos
+### Migracion o creacion de la base de datos
 php artisan migrate 
 php artisan migrate:fresh --seed
 
-### crear modelos, controladores, migraciones,seeds
-php artisan make:model nombre
-php artisan make:controller nombre
-php artisan make:migration nombre
-php artisan make:seeder nombre
+### Crear modelos, controladores, migraciones,seeds
+<p>php artisan make:model nombre</p>
+<p>php artisan make:controller nombre</p>
+<p>php artisan make:migration nombre</p>
+<p>php artisan make:seeder nombre</p>
+#### Crear migracion,seeder,modelo,controlador con un solo comando
 php artisan make:model nombre -a
 
 ## Para iniciar un proyecto bajado de github
- 1) Copiar .env.example y pegarlo como .env
- 2) Configurar las credenciales de la db
- 3) Ejecutar los comandos
+ #### 1) Copiar .env.example y pegarlo como .env
+ #### 2) Configurar las credenciales de la db
+ #### 3) Ejecutar los comandos
  composer install
  php artisan key:generate
- 4) enlazar la carpeta storage con la carpeta public
+ #### 4) Enlazar la carpeta storage con la carpeta public
  php artisan storage:link
 
 
