@@ -29,8 +29,8 @@ Se necesita saber cuántos apuntes ha añadido cada usuario.
 
 ## 1) Instalar Composer
 https://getcomposer.org/download/
-## 2) Actualizar/Instalar laravel
-### Desinstalar el paquete (si ya lo tienes)
+## 2) Actualizar/Instalar laravel (Consola)
+### Desinstalar el paquete (Si ya lo tienes)
 composer global remove laravel/installer
 
 ## Reinstalar/instalar
