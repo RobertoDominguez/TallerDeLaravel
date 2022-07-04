@@ -47,7 +47,7 @@ https://code.visualstudio.com/
 ### Iniciar un servidor local con laravel (php) 
     php artisan serve
 ### Servidor local avanzado
-    php artisan serve --port=8001 --host =ip
+    php artisan serve --port=8001 --host=ip
 
 ### Migracion o creacion de la base de datos
     php artisan migrate 
